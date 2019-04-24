@@ -1,0 +1,54 @@
+zaaltan huvisagch
+
+int &xuvisagch = utga; // huvisagch boloh utgiin torol 								ijil bn
+
+umnu baigaa huvisagchid uur nereer handah bolomjiig olgodog.
+
+ int x;
+ int & x_ref;
+ x_ref = x; //invalid
+
+ //jishee
+ int x = 50;
+ int &x_ref = x;
+ int y = 100;
+ x_ref = y;
+ OUTPUT: x, x_ref = 100;
+
+ /*
+#include...
+
+int abc(int &x) {
+	x++;
+	return x + 5;
+}
+
+int main() {
+	int a, b;
+	cin >> a;
+	b = abc(a);
+	cout << a << " " << b << endl;
+}
+*/
+
+
+
+
+
+zaaltan huvisagch ashiglaj bhad utgiig ni uurchluhiig husehgui bol const tulhuur ugiig ashiglana.
+// int square(const int &x) {
+	...
+	...
+}
+
+function parameter garaani utgatai baij bolno
+
+int myfunction(int a = 10, int b = 20) {
+	...
+	...
+}
+
+myfunction(1, 2); -> a = 1, b = 2;
+myfunction(); -> a = 10, b = 20;
+
+Polymorphism -> ijil nertei olon function baij bolno.

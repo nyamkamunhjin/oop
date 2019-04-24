@@ -1,0 +1,13 @@
+copy constructor
+ employee(employee &a) {
+ //copies a employee
+ 	...
+
+ }
+
+delete constructor
+
+employee :: ~() {
+	delete name; // it's a variable with allocated size;
+	
+}
