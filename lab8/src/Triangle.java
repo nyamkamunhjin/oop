@@ -5,6 +5,7 @@ public class Triangle extends TwoDimensionalShape {
     private double [] botLeftCoordinate;
     private double [] botRightCoordinate;
 
+
     public Triangle(String shapeName, double x, double y, double edgeLength) {
         super(shapeName, x, y);
         this.edgeLength = edgeLength;
@@ -33,30 +34,34 @@ public class Triangle extends TwoDimensionalShape {
 
     public void setEdgeLength(double edgeLength) {
         this.edgeLength = edgeLength;
+
+        this.topCoordinate[0] = x + edgeLength / 2;
+        this.topCoordinate[1] = y + (edgeLength * edgeLength * Math.sqrt(3) / 2);
+
+        this.botRightCoordinate[0] = x + edgeLength;
+        this.botRightCoordinate[1] = y;
     }
 
     public double[] getTopCoordinate() {
         return topCoordinate;
     }
 
-    public void setTopCoordinate(double[] topCoordinate) {
-        this.topCoordinate = topCoordinate;
-    }
-
     public double[] getBotLeftCoordinate() {
         return botLeftCoordinate;
-    }
-
-    public void setBotLeftCoordinate(double[] botLeftCoordinate) {
-        this.botLeftCoordinate = botLeftCoordinate;
     }
 
     public double[] getBotRightCoordinate() {
         return botRightCoordinate;
     }
 
-    public void setBotRightCoordinate(double[] botRightCoordinate) {
-        this.botRightCoordinate = botRightCoordinate;
+    public void setBotLeftCoordinate(double[] botLeftCoordinate) {
+        this.botLeftCoordinate = botLeftCoordinate;
+
+        this.topCoordinate[0] = x + edgeLength / 2;
+        this.topCoordinate[1] = y + (edgeLength * edgeLength * Math.sqrt(3) / 2);
+
+        this.botRightCoordinate[0] = x + edgeLength;
+        this.botRightCoordinate[1] = y;
     }
 
     @Override
@@ -78,7 +83,6 @@ public class Triangle extends TwoDimensionalShape {
 
         System.out.println("Area: " + this.findArea());
         System.out.println("Perimeter: " + this.findPerimeter());
-
 
     }
 }

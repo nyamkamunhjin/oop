@@ -37,6 +37,15 @@ public class Square extends TwoDimensionalShape {
 
     public void setEdgeLength(int edgeLength) {
         this.edgeLength = edgeLength;
+
+        this.coordinate2[0] = x + edgeLength;
+        this.coordinate2[1] = y;
+
+        this.coordinate3[0] = x;
+        this.coordinate3[1] = y + edgeLength;
+
+        this.coordinate4[0] = x + edgeLength;
+        this.coordinate4[1] = y + edgeLength;
     }
 
     @Override
@@ -55,31 +64,30 @@ public class Square extends TwoDimensionalShape {
 
     public void setCoordinate1(double[] coordinate1) {
         this.coordinate1 = coordinate1;
+
+        this.coordinate2[0] = x + edgeLength;
+        this.coordinate2[1] = y;
+
+        this.coordinate3[0] = x;
+        this.coordinate3[1] = y + edgeLength;
+
+        this.coordinate4[0] = x + edgeLength;
+        this.coordinate4[1] = y + edgeLength;
+
     }
 
     public double[] getCoordinate2() {
         return coordinate2;
     }
 
-    public void setCoordinate2(double[] coordinate2) {
-        this.coordinate2 = coordinate2;
-    }
-
     public double[] getCoordinate3() {
         return coordinate3;
-    }
-
-    public void setCoordinate3(double[] coordinate3) {
-        this.coordinate3 = coordinate3;
     }
 
     public double[] getCoordinate4() {
         return coordinate4;
     }
 
-    public void setCoordinate4(double[] coordinate4) {
-        this.coordinate4 = coordinate4;
-    }
 
     @Override
     public void printShape() {

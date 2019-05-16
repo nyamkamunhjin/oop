@@ -303,6 +303,9 @@ int main() {
     printf("(matrix 2 -- )\n");
     test1--;
     test1.print();
+	
+	printf("(matrix 2 transpose)\n");
+	(test1.t()).print();
 
     return 0;
 }

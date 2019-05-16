@@ -1,3 +1,6 @@
+import java.util.Collections;
+import java.util.List;
+
 public abstract class TwoDimensionalShape extends Shape {
 
     // fields
@@ -22,5 +25,15 @@ public abstract class TwoDimensionalShape extends Shape {
         System.out.println("Shape type: " + shapeName);
         System.out.println("pos: " + this.getX() +", " +
                 this.getY());
+    }
+
+    public static void sortShapes(List<TwoDimensionalShape> shapes) {
+        for(int i = 0; i < shapes.size() - 1; i++) {
+            for(int j = i + 1; j < shapes.size(); j++) {
+                if(shapes.get(i).findArea() > shapes.get(j).findArea()) {
+                    Collections.swap(shapes, i, j);
+                }
+            }
+        }
     }
 }
