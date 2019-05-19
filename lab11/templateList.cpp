@@ -54,9 +54,18 @@ public:
 	}
 
 	void insert(T value, int index) {
-		if(head == NULL) { // if list is empty
-			head = new Node<T>(value);
-			tail = head;
+		// if list is empty or if index higher than length
+		if(head == NULL || index >= this->length) { 
+			this->add(value);
+			return;
+		}
+
+		if(index == 0) {
+			Node<T> *temp = new Node<T>(value);
+			temp->next = head;
+			head = temp;
+
+			length++;
 			return;
 		}
 
@@ -66,7 +75,7 @@ public:
 			temp = temp->next;
 			i++;
 		}
-		cout << "debug: " << temp->value << endl;
+		// cout << "debug: " << temp->value << endl;
 		// save next temp
 		Node<T> *tempNext = temp->next;
 
@@ -76,7 +85,6 @@ public:
 
 		length++;
 	}
-
 
 	auto get(int index) {
 		int i = 0; // counter
@@ -89,17 +97,36 @@ public:
 	}
 
 	void deleteNode(int index) {
-		int i = 0;  // counter
-		Node<T> *temp = head;
+		if(head == NULL) {
+			cout << "List empty\n";
+			return;
+		}
 
-		while(i < index - 1) { // count until index
-			temp = temp->next;
+		int i = 0;  // counter
+		Node<T> *after = head;
+		Node<T> *before;
+		while(i < index) { // count until previous index
+			before = after;
+			after = after->next;
 			i++;
 		}
 
-		Node<T> *freeNode = temp->next; // node that's going to be deleted
-		temp->next = temp->next->next; // re connecting the link
-		delete freeNode; // deleting the node
+		if(head == after) {
+			head = head->next;
+			delete after;
+			return;
+		}
+
+		if(tail == after) {
+			tail = before;
+			delete after;
+			tail->next = NULL;
+			return;
+		}
+
+
+		before->next = after->next; // re connecting the link
+		delete after; // deleting the node
 
 		length--; // decrease length
 	}
@@ -117,11 +144,12 @@ int main() {
 	link.add("3");
 	link.add("4");
 	link.add("5");
-	link.insert("insert", 3);
-	link.deleteNode(3);
+	link.insert("insert", 5);
+	// link.deleteNode(5);
 	link.print();
 
-	cout << link.get(3) << endl << link.getLength() << endl;
+
+	// cout << link.get(3) << endl << link.getLength() << endl;
 	return 0;
 }
  
