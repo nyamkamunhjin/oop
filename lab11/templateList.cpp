@@ -138,7 +138,7 @@ public:
 
 
 int main() {
-	List<string> link;
+	List<int> link;
 	link.add("1");
 	link.add("2");
 	link.add("3");
